@@ -6,7 +6,10 @@ import './PatientItem.sass';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPatient } from '../../actions/actions';
-import isPatientSelected from './isPatientSelected';
+
+function isPatientSelected(patientData, storePatientData) {
+  return (JSON.stringify(patientData) === JSON.stringify(storePatientData));
+}
 
 function PatientItem({ patient }) {
   const dispatch = useDispatch();

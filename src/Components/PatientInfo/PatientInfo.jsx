@@ -1,7 +1,17 @@
+/* eslint-disable no-plusplus */
 import React from 'react';
 import './PatientInfo.sass';
 import { useSelector } from 'react-redux';
-import getAge from './getAge';
+
+function getAge(PatientBirthdate) {
+  const today = new Date();
+  let age = today.getFullYear() - PatientBirthdate.getFullYear();
+  const mParameter = today.getMonth() - PatientBirthdate.getMonth();
+  if (mParameter < 0 || (mParameter === 0 && today.getDate() < PatientBirthdate.getDate())) {
+    age--;
+  }
+  return age;
+}
 
 function PatientInfo() {
   const { selectedPatient, isPatientSelected } = useSelector((state) => state);
@@ -23,7 +33,7 @@ function PatientInfo() {
           <div className="infoParameter">Возраст</div>
           <div className="infoValue">
             {(isPatientSelected === true)
-              ? getAge(selectedPatient.birthDate)
+              ? getAge(new Date(selectedPatient.birthDate))
               : ''}
           </div>
         </div>
