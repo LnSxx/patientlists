@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/patientlists/static/css/main.8b3169d7.chunk.css",
-    "main.js": "/patientlists/static/js/main.27962ff3.chunk.js",
-    "main.js.map": "/patientlists/static/js/main.27962ff3.chunk.js.map",
+    "main.js": "/patientlists/static/js/main.23465b64.chunk.js",
+    "main.js.map": "/patientlists/static/js/main.23465b64.chunk.js.map",
     "runtime-main.js": "/patientlists/static/js/runtime-main.30363572.js",
     "runtime-main.js.map": "/patientlists/static/js/runtime-main.30363572.js.map",
     "static/js/2.b6f6e94f.chunk.js": "/patientlists/static/js/2.b6f6e94f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.30363572.js",
     "static/js/2.b6f6e94f.chunk.js",
     "static/css/main.8b3169d7.chunk.css",
-    "static/js/main.27962ff3.chunk.js"
+    "static/js/main.23465b64.chunk.js"
   ]
 }
