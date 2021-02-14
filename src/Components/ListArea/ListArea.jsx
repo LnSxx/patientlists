@@ -4,12 +4,17 @@ import './ListArea.sass';
 import { Container, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import PatientList from '../PatientList/PatientList';
-import downloadPatientLists from './downloadPatientLists';
+import downloadPresentList from './downloadPresentList';
+import downloadQuittingList from './downloadQuittingList';
+import { REACT_APP_PRESENT_LIST_JSON_URL, REACT_APP_QUITTING_LIST_JSON_URL } from '../../settings';
 
 function ListArea() {
   const { patientList, error } = useSelector((state) => state);
   const dispatch = useDispatch();
-  useEffect(() => { dispatch(downloadPatientLists()); }, []);
+  useEffect(() => {
+    dispatch(downloadPresentList(REACT_APP_PRESENT_LIST_JSON_URL));
+    dispatch(downloadQuittingList(REACT_APP_QUITTING_LIST_JSON_URL));
+  }, []);
   if (error === null) {
     return (
       <div className="patientsList">

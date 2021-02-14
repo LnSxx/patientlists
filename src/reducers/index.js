@@ -1,5 +1,4 @@
 import { ACTION_NAMES } from '../actions/actions';
-import { LISTS_DIVISIONS } from '../settings';
 
 export const initialState = {
   patientList: {
@@ -15,30 +14,30 @@ export const initialState = {
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case ACTION_NAMES.PATIENT_LISTS_FETCH_SUCCESS:
-      switch (action.division) {
-        case LISTS_DIVISIONS.PRESENT_LIST:
-          return {
-            ...state,
-            patientList: {
-              ...state.patientList,
-              present: action.payload,
-              presentListIsLoaded: true,
-            },
-          };
-        case LISTS_DIVISIONS.QUITTING_LIST:
-          return {
-            ...state,
-            patientList: {
-              ...state.patientList,
-              quitting: action.payload,
-              quittingListIsLoaded: true,
-            },
-          };
-        default:
-          return state;
-      }
-    case ACTION_NAMES.PATIENT_LISTS_FETCH_FAIL:
+    case ACTION_NAMES.PRESENT_LIST_FETCH_SUCCESS:
+      return {
+        ...state,
+        patientList: {
+          ...state.patientList,
+          present: action.payload,
+          presentListIsLoaded: true,
+        },
+      };
+    case ACTION_NAMES.PRESENT_LIST_FETCH_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case ACTION_NAMES.QUITTING_LIST_FETCH_SUCCESS:
+      return {
+        ...state,
+        patientList: {
+          ...state.patientList,
+          quitting: action.payload,
+          quittingListIsLoaded: true,
+        },
+      };
+    case ACTION_NAMES.QUITTING_LIST_FETCH_FAIL:
       return {
         ...state,
         error: action.payload,
